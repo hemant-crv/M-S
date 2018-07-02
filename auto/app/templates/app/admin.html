@@ -1,0 +1,52 @@
+<html>
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+ <script src="app.js"></script>
+<div class="container" >
+  <h2>Request List</h2>
+  <div class="table-responsive">
+  <table class="table table-bordered table-hover table-striped" id="coinslist">
+    <thead>
+      <tr>
+        <th>ID </th>
+        <th>Name</th>
+        <th>Project</th>
+        <th>Position</th>
+        <th>duration</th>
+        <th>Access Request</th>
+        <th>status</th>
+		    <th>Access</th>
+      </tr>
+    </thead>
+  <tbody id="body">
+
+  </tbody>
+</table>
+</div>
+</div>
+
+</body>
+<script>
+
+function display(){
+var rows="";
+    {% for d in data %}
+     {{d.employee_id}}
+     rows += "<tr><td>"+"{{d.employee_id}}" + "</td><td>" +"&#32 " +"{{d.name}}" + "</td><td>" + "&#32 " +"{{d.project}}"+ "</td><td>" +"&#32 " +"{{d.position}}"+"</td><td>" +"{{d.duration }}"+"</td><td>" +"{{d.access }}"+"</td><td>" +"{{d.status }}"+"</td></tr>";
+
+    {% endfor %}
+
+$( rows ).appendTo("#coinslist tbody" );
+}
+
+
+
+display();
+</script>
+</html>
